@@ -52,12 +52,14 @@
 
         /* --- HEADER --- */
         header {
-            background: linear-gradient(rgba(10, 61, 46, 0.85), rgba(150, 42, 64, 0.6)), url('cover.jpg');
+            /* CORRECTED FILENAME FROM SCREENSHOT */
+            background: linear-gradient(rgba(10, 61, 46, 0.85), rgba(150, 42, 64, 0.6)), url('cover.jpg.png');
             background-size: cover; background-position: center; background-attachment: fixed;
             min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
             color: white; text-align: center; position: relative; overflow: hidden;
         }
         .profile-pic {
+            /* CORRECTED FILENAME FROM SCREENSHOT */
             width: 240px; height: 240px; border-radius: 45% 55% 70% 30% / 45% 65% 35% 55%;
             border: 5px solid var(--accent-gold); object-fit: cover; object-position: top;
             margin-bottom: 2.5rem; box-shadow: 0 10px 40px rgba(0,0,0,0.3); z-index: 2;
@@ -65,18 +67,20 @@
         header h1 { font-size: 5.5rem; letter-spacing: 2px; margin-bottom: 15px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); z-index: 2; line-height: 1.1; }
         .hero-role { font-size: 1.5rem; letter-spacing: 3px; color: var(--accent-gold); font-weight: 600; margin-bottom: 2rem; z-index: 2; }
         
-        /* SOCIAL ICONS + CV ICON */
-        .social-icons { margin-top: 2rem; display: flex; gap: 15px; align-items: center; justify-content: center; }
+        .social-icons { margin-top: 2rem; display: flex; gap: 15px; align-items: center; justify-content: center; z-index: 5; position: relative; }
         .social-icons a {
             display: inline-flex; width: 60px; height: 60px; background: rgba(255,255,255,0.1);
             border: 2px solid var(--accent-gold); border-radius: 50%; align-items: center; justify-content: center;
             color: var(--accent-gold); font-size: 1.8rem; transition: 0.4s; text-decoration: none;
-            backdrop-filter: blur(5px); z-index: 2;
+            backdrop-filter: blur(5px);
         }
         .social-icons a:hover { background: var(--accent-gold); color: var(--primary-green); transform: translateY(-10px) rotate(10deg); }
-        /* Special style for CV icon */
-        .cv-icon { border-radius: 15px !important; font-weight: bold; font-family: 'Poppins', sans-serif; font-size: 1.2rem !important; letter-spacing: 1px;}
-
+        
+        /* CV Icon specific style */
+        .cv-icon { 
+            font-size: 1rem !important; font-weight: bold; letter-spacing: 1px;
+            width: auto !important; padding: 0 20px; border-radius: 30px !important;
+        }
 
         /* --- NARRATIVE --- */
         .story-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; margin-bottom: 8rem; }
@@ -104,7 +108,7 @@
             text-transform: uppercase; letter-spacing: 1px; transition: 0.4s;
             box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
         }
-        .btn-glow:hover { background: white; color: var(--primary-burgundy); box-shadow: 0 0 40px rgba(212, 175, 55, 0.8); }
+        .btn-glow:hover { background: white; color: var(--primary-burgundy); }
 
         /* --- EXPERTISE --- */
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 50px; margin-top: 5rem; }
@@ -116,7 +120,7 @@
         .skill-list li { padding: 15px 0; border-bottom: 2px dashed #eee; display: flex; align-items: center; font-weight: 600; font-size: 1.1rem; }
         .skill-list li i { color: var(--primary-burgundy); margin-right: 20px; font-size: 1.4rem; }
 
-        /* --- STATS (Burgundy BG) --- */
+        /* --- STATS --- */
         .stats-section {
             margin: 8rem 0; padding: 5rem 2rem; background: var(--primary-burgundy);
             border-radius: 50px; color: white; text-align: center;
@@ -125,7 +129,7 @@
         .stat-num { font-size: 4.5rem; color: var(--accent-gold); font-weight: 800; line-height: 1; margin-bottom: 10px; }
         .stat-label { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* --- CLIENTS (Storybook Slider - ALL 11 Clients) --- */
+        /* --- CLIENTS (11 CLIENTS) --- */
         .client-section { background: linear-gradient(to bottom, var(--bg-cream), white); }
         .book-container { 
             max-width: 900px; margin: 4rem auto; position: relative; background: white; 
@@ -178,16 +182,31 @@
         .web-card img { width: 100%; border-radius: 30px; border: 3px solid var(--bg-blush); transition: 0.3s; }
         .web-card:hover img { transform: scale(1.03); }
 
-        /* --- FOOTER --- */
+        /* --- FOOTER (NEW DESIGN) --- */
         footer {
-            background: linear-gradient(to top, #052018, var(--primary-green)); color: white; 
-            text-align: center; padding: 8rem 2rem 4rem; border-radius: 100px 100px 0 0;
+            background: linear-gradient(180deg, #052018 0%, var(--primary-green) 100%); 
+            color: white; text-align: center; padding: 8rem 2rem 6rem; 
+            border-radius: 120px 120px 0 0; margin-top: 6rem;
+            position: relative; overflow: hidden;
         }
+        .footer-cta-text { font-family: 'Playfair Display', serif; font-size: 4.5rem; color: var(--accent-gold); margin-bottom: 2rem; }
+        .footer-sub { font-size: 1.5rem; opacity: 0.9; margin-bottom: 4rem; max-width: 700px; margin-left: auto; margin-right: auto; }
         
+        /* NEW CV BUTTON STYLE */
+        .cv-btn-large {
+            display: inline-block; padding: 25px 60px; 
+            background: transparent; color: var(--accent-gold); 
+            border: 3px solid var(--accent-gold); font-size: 1.5rem; 
+            font-weight: 800; border-radius: 50px; margin: 15px; 
+            text-decoration: none; transition: 0.4s; letter-spacing: 2px;
+        }
+        .cv-btn-large:hover { background: var(--accent-gold); color: var(--primary-green); transform: scale(1.05); }
+
         @media(max-width:768px) {
             .story-grid, .web-grid, .client-header { grid-template-columns: 1fr; flex-direction: column; text-align: center; }
             header h1 { font-size: 3.5rem; }
             .portfolio-grid { grid-template-columns: 1fr; }
+            .footer-cta-text { font-size: 3rem; }
         }
         @keyframes fade { from{opacity:0; transform: translateY(20px);} to{opacity:1; transform: translateY(0);} }
     </style>
@@ -195,7 +214,7 @@
 <body>
 
     <header>
-        <img src="me.jpg" alt="Profile" class="profile-pic">
+        <img src="me.jpg.jpeg" alt="Profile" class="profile-pic">
         <h1>NOUR MOTAWEA</h1>
         <p class="hero-role">SENIOR CONTENT CREATOR | STRATEGIST</p>
         <p class="quote" style="font-size: 1.3rem; font-style: italic;">"Every word has a story to tell."</p>
@@ -206,8 +225,8 @@
             <a href="https://www.instagram.com/nourmotaweaa?igsh=NnJnejU4dmg0bXU5"><i class="fab fa-instagram"></i></a>
             <a href="mailto:nourmotawea618@gmail.com"><i class="fas fa-envelope"></i></a>
             
-            <a href="https://drive.google.com/file/d/1BrXtNRjj8LXPWSN3P_6k_L0WYyhB-MIL/view?usp=sharing" target="_blank" class="cv-icon" title="Download C.V.">
-                C.V.
+            <a href="https://drive.google.com/file/d/1BrXtNRjj8LXPWSN3P_6k_L0WYyhB-MIL/view?usp=sharing" target="_blank" class="cv-icon" title="View CV">
+                <i class="fas fa-file-pdf" style="margin-right:5px;"></i> C.V.
             </a>
         </div>
     </header>
@@ -221,7 +240,7 @@
                 <h3 class="text-burgundy">Born into a World of Words</h3>
                 <p>I was born into a home filled with writing. My parents were established writers, and the library was my very first world. I started by creating "Vlog-style" videos for myself.</p>
             </div>
-            <img src="story1.jpg" alt="Childhood" class="story-img">
+            <img src="story1.jpg.png" alt="Childhood" class="story-img">
         </div>
 
         <div class="story-grid" style="direction: rtl;">
@@ -229,7 +248,7 @@
                 <h3 class="text-burgundy">The Theater Era</h3>
                 <p>From childhood through university, I acted in theater. It taught me the art of improvisation, how to view things from different perspectives, and how to convey emotion through words before action.</p>
             </div>
-            <img src="story2.jpg" alt="Theater" class="story-img">
+            <img src="story2.jpg.png" alt="Theater" class="story-img">
         </div>
     </section>
 
@@ -237,9 +256,9 @@
         <h2 style="font-size: 3rem;">Behind The Scenes & VO</h2>
         <p style="font-size: 1.2rem;">Entering the world of Voice Over unlocked a new door for self-expression.</p>
         <div class="vo-grid">
-            <img src="workspace_vo.jpg" class="vo-item">
-            <img src="workspace_vo2.jpg" class="vo-item">
-            <img src="workspace_vo4.jpg" class="vo-item">
+            <img src="workspace_vo.jpg.jpeg" class="vo-item">
+            <img src="workspace_vo2.jpg.jpg" class="vo-item">
+            <img src="workspace_vo4.jpg.jpg" class="vo-item">
         </div>
         <a href="#" class="btn-glow">Listen to Samples</a>
         <a href="#" class="btn-glow">Watch Showreel</a>
@@ -285,7 +304,7 @@
             
             <div class="client-slide" style="display:block;">
                 <div class="client-header">
-                    <img src="client1.png" class="c-logo">
+                    <img src="client1.png.png" class="c-logo">
                     <div><h3 class="text-burgundy">Tronners</h3><p class="text-gold" style="font-weight:700;">Senior Strategist</p></div>
                 </div>
                 <ul class="client-tasks"><li>Marketing plans & Branding strategies.</li></ul>
@@ -293,7 +312,7 @@
 
             <div class="client-slide">
                 <div class="client-header">
-                    <img src="client2.png" class="c-logo">
+                    <img src="client2.png.png" class="c-logo">
                     <div><h3 class="text-burgundy">Arizona Trader</h3><p class="text-gold" style="font-weight:700;">Head of Content</p></div>
                 </div>
                 <ul class="client-tasks"><li>Social media direction & Financial content.</li></ul>
@@ -301,7 +320,7 @@
 
             <div class="client-slide">
                 <div class="client-header">
-                    <img src="client3.jpg" class="c-logo">
+                    <img src="client3.jpg.jpg" class="c-logo">
                     <div><h3 class="text-burgundy">CO Academy</h3><p class="text-gold" style="font-weight:700;">Strategist</p></div>
                 </div>
                 <ul class="client-tasks"><li>Educational campaigns & Student engagement.</li></ul>
@@ -309,7 +328,7 @@
 
             <div class="client-slide">
                 <div class="client-header">
-                    <img src="client4.jpg" class="c-logo">
+                    <img src="client4.jpg.jpg" class="c-logo">
                     <div><h3 class="text-burgundy">Hajzify</h3><p class="text-gold" style="font-weight:700;">Content Manager</p></div>
                 </div>
                 <ul class="client-tasks"><li>SaaS tutorials & B2B Content.</li></ul>
@@ -317,7 +336,7 @@
 
             <div class="client-slide">
                 <div class="client-header">
-                    <img src="client5.png" class="c-logo">
+                    <img src="client5.png.png" class="c-logo">
                     <div><h3 class="text-burgundy">Shaheen</h3><p class="text-gold" style="font-weight:700;">Content Creator</p></div>
                 </div>
                 <ul class="client-tasks"><li>Viral content creation & Brand voice.</li></ul>
@@ -325,7 +344,7 @@
 
             <div class="client-slide">
                 <div class="client-header">
-                    <img src="client6.png" class="c-logo">
+                    <img src="client6.png.jpg" class="c-logo">
                     <div><h3 class="text-burgundy">Out Box</h3><p class="text-gold" style="font-weight:700;">Marketing Specialist</p></div>
                 </div>
                 <ul class="client-tasks"><li>Creative marketing campaigns.</li></ul>
@@ -333,7 +352,7 @@
 
             <div class="client-slide">
                 <div class="client-header">
-                    <img src="client7.png" class="c-logo">
+                    <img src="client7.png.png" class="c-logo">
                     <div><h3 class="text-burgundy">Raja</h3><p class="text-gold" style="font-weight:700;">Brand Manager</p></div>
                 </div>
                 <ul class="client-tasks"><li>Rebranding & Visual identity.</li></ul>
@@ -341,7 +360,7 @@
 
             <div class="client-slide">
                 <div class="client-header">
-                    <img src="client8.png" class="c-logo">
+                    <img src="client8.png.jpg" class="c-logo">
                     <div><h3 class="text-burgundy">Flora</h3><p class="text-gold" style="font-weight:700;">Creative Director</p></div>
                 </div>
                 <ul class="client-tasks"><li>Product launch campaigns.</li></ul>
@@ -349,7 +368,7 @@
 
             <div class="client-slide">
                 <div class="client-header">
-                    <img src="client9.png" class="c-logo">
+                    <img src="client9.png.jpg" class="c-logo">
                     <div><h3 class="text-burgundy">El-Hamad</h3><p class="text-gold" style="font-weight:700;">Fashion Content</p></div>
                 </div>
                 <ul class="client-tasks"><li>Fashion Reels & Trend analysis.</li></ul>
@@ -357,7 +376,7 @@
 
             <div class="client-slide">
                 <div class="client-header">
-                    <img src="client10.jpg" class="c-logo">
+                    <img src="client10.jpg.png" class="c-logo">
                     <div><h3 class="text-burgundy">Twasol</h3><p class="text-gold" style="font-weight:700;">Media Buyer</p></div>
                 </div>
                 <ul class="client-tasks"><li>Ad campaigns & Lead generation.</li></ul>
@@ -365,14 +384,14 @@
 
             <div class="client-slide">
                 <div class="client-header">
-                    <img src="client11.jpg" class="c-logo">
+                    <img src="client11.jpg.jpg" class="c-logo">
                     <div><h3 class="text-burgundy">Bedaya Travel</h3><p class="text-gold" style="font-weight:700;">Content Strategy</p></div>
                 </div>
                 <ul class="client-tasks"><li>Tourism content & Travel copywriting.</li></ul>
             </div>
 
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            <a class="prev" onclick="plusSlides(-1, 'client')">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, 'client')">&#10095;</a>
         </div>
     </section>
 
@@ -381,27 +400,27 @@
         <div class="portfolio-grid">
             <div class="port-item">
                 <h3 class="port-title">Marketing Strategy</h3>
-                <img src="work1.png" class="port-img">
+                <img src="work1.png.png" class="port-img">
             </div>
             <div class="port-item">
                 <h3 class="port-title">Content Calendar</h3>
-                <img src="work2.png" class="port-img">
+                <img src="work2.png.png" class="port-img">
             </div>
             <div class="port-item">
                 <h3 class="port-title">Reports</h3>
-                <img src="work3.png" class="port-img">
+                <img src="work3.png.png" class="port-img">
             </div>
              <div class="port-item">
                 <h3 class="port-title">Website Content</h3>
-                <img src="web.jpg" class="port-img">
+                <img src="web.jpg.png" class="port-img">
             </div>
              <div class="port-item">
                 <h3 class="port-title">SEO Research</h3>
-                <img src="seo.png" class="port-img">
+                <img src="seo.png.png" class="port-img">
             </div>
              <div class="port-item">
                 <h3 class="port-title">Branding</h3>
-                <img src="work1.png" class="port-img" style="filter:hue-rotate(90deg)">
+                <img src="work1.png.png" class="port-img" style="filter:hue-rotate(90deg)">
             </div>
         </div>
     </section>
@@ -409,49 +428,60 @@
     <section class="section-padding">
         <h2 class="center">Website & SEO</h2>
         <div class="web-grid">
-            <div class="web-card"><h3>Content Creation</h3><img src="web.jpg"></div>
-            <div class="web-card"><h3>SEO Research</h3><img src="seo.png"></div>
+            <div class="web-card"><h3>Content Creation</h3><img src="web.jpg.png"></div>
+            <div class="web-card"><h3>SEO Research</h3><img src="seo.png.png"></div>
         </div>
     </section>
 
     <footer>
         <div class="blob-bg" style="bottom: 10%; right: 10%; width: 400px; height: 400px; background: var(--accent-gold); opacity: 0.1;"></div>
-        <h2 class="text-gold" style="font-size: 4rem;">GO VIRAL.</h2>
-        <p style="font-size: 1.3rem; margin: 3rem 0;">I believe that every word has power.</p>
-        <div style="margin-bottom: 4rem; font-size: 1.3rem;">
+        
+        <h2 class="footer-cta-text">GO VIRAL.</h2>
+        <p class="footer-sub">
+            I believe that every word and every idea has the power to create real impact. That’s why this portfolio is a display of my work and an invitation to start a new journey together.
+        </p>
+        
+        <div style="margin-bottom: 3rem; font-size: 1.3rem; line-height: 2;">
             <p><i class="fas fa-phone text-gold"></i> 01023084274</p>
             <p><i class="fas fa-envelope text-gold"></i> NOURMOTAWEA618@GMAIL.COM</p>
             <p><i class="fab fa-instagram text-gold"></i> @NOURMOTAWE</p>
         </div>
         
-        <a href="https://drive.google.com/file/d/1BrXtNRjj8LXPWSN3P_6k_L0WYyhB-MIL/view?usp=sharing" target="_blank" class="btn-glow" style="font-size: 1.2rem; padding: 20px 50px; margin-bottom: 20px;">DOWNLOAD C.V.</a>
+        <a href="https://drive.google.com/file/d/1BrXtNRjj8LXPWSN3P_6k_L0WYyhB-MIL/view?usp=sharing" target="_blank" class="cv-btn-large">
+            DOWNLOAD C.V.
+        </a>
         <br>
-        <a href="https://wa.me/201023084274" class="btn-glow" style="font-size: 1.2rem; padding: 20px 50px;">Start Your Journey</a>
+        <a href="https://wa.me/201023084274" class="btn-glow" style="padding: 15px 40px; margin-top: 20px;">Start Your Journey</a>
         
         <br><br><br>
         <small style="opacity: 0.7;">&copy; 2025 Nour Motawea Portfolio</small>
     </footer>
 
     <script>
-        let slideIndex = 1;
-        function plusSlides(n) { showSlides(slideIndex += n); }
+        let clientIndex = 1;
+        function plusSlides(n) { showSlides(clientIndex += n); }
         function showSlides(n) {
             let i;
             let slides = document.getElementsByClassName("client-slide");
-            if (n > slides.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = slides.length}
+            if (n > slides.length) {clientIndex = 1}
+            if (n < 1) {clientIndex = slides.length}
             for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
-            slides[slideIndex-1].style.display = "block";
+            slides[clientIndex-1].style.display = "block";
         }
         
-        // Auto-fix images script
+        // --- MAGIC SCRIPT: AUTO-FIX ALL IMAGES ---
         document.addEventListener("DOMContentLoaded", function() {
             const allImages = document.getElementsByTagName('img');
             for(let i=0; i<allImages.length; i++) {
                 allImages[i].onerror = function() {
                     this.onerror = null;
-                    if (this.src.endsWith('.png')) this.src = this.src + '.png';
-                    else if (this.src.endsWith('.jpg')) this.src = this.src + '.jpg';
+                    // If image fails, try variations of double extensions
+                    // Check if it ends in .jpg, try adding .png or .jpg
+                    if (this.src.endsWith('.jpg')) { this.src = this.src + '.png'; }
+                    else if (this.src.endsWith('.png')) { this.src = this.src + '.jpg'; }
+                    // Also cover the reverse case (removing double extension)
+                    else if (this.src.endsWith('.png.png')) { this.src = this.src.replace('.png.png', '.png'); }
+                    else if (this.src.endsWith('.jpg.jpg')) { this.src = this.src.replace('.jpg.jpg', '.jpg'); }
                 }
             }
         });
